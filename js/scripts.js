@@ -1,16 +1,39 @@
 $(document).ready(function() {
-  $("form#transportation_survey").submit(function (event) {
+  $("form#fortuneQuiz").submit(function (event) {
     event.preventDefault();
-    $("#work-responses").show();
-    $("input:checkbox[name=work-transportation]:checked").each(function () {
-      const workTransportationMode = $(this).val();
-      $('#work-responses').append(workTransportationMode + "<br>");
+    $("#fortuneQuiz").hide();
+    $("#return").show();
+    let goodLuckIndex = [];
+    $("input:checkbox[name=good-luck]:checked").each(function () {
+      const goodLuckArray = $(this).val();
+      goodLuckIndex.push(goodLuckArray);
+      console.log(goodLuckIndex);
     });
-    $("#fun-responses").show();
-    $("input:checkbox[name=fun-transportation]:checked").each(function () {
-      const funTransportationMode = $(this).val();
-      $('#fun-responses').append(funTransportationMode + "<br>");
+    let badLuckIndex = [];
+    $("input:checkbox[name=bad-luck]:checked").each(function () {
+      const badLuckArray = $(this).val();
+      badLuckIndex.push(badLuckArray);
     });
-    $('#transportation_survey').hide();
+    if (goodLuckIndex.length > badLuckIndex.length) {
+      $("#fortune1").show();
+    }
+    else if (goodLuckIndex.length < badLuckIndex.length) {
+      $("#fortune2").show();
+    }
+    else if (goodLuckIndex.length === 0 && badLuckIndex.length === 0) {
+      $("#no-fortune").show();
+    }
+    else {
+      $("#fortune3").show();
+    }
+  });
+  $("button#retake-quiz").click(function() {
+    $("#fortune1").hide();
+    $("#fortune2").hide();
+    $("#fortune3").hide();
+    $("#no-fortune").hide();
+    $("#return").hide();
+    $("#fortuneQuiz").show();
+    $("input[type=checkbox]").prop('checked', false).uniform();
   });
 });

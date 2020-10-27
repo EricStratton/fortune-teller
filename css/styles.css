@@ -1,7 +1,46 @@
-#work-responses {
+body {
+  background-color: #393939;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #afafaf;
+}
+
+.container {
+  padding-bottom: 1em;
+}
+
+.jumbotron {
+  background-color: #FE8000;
+  color: #191919;
+  margin: auto;
+  text-align: center;
+  width: 80%;
+  margin-bottom: 2.5em;
+}
+
+p {
+  color: #FE8000;
+}
+
+.checkyboy {
+  margin: auto 0.5em auto 2em;
+}
+
+#fortune1 {
   display: none;
 }
 
-#fun-responses {
+#fortune2 {
+  display: none;
+}
+
+#fortune3 {
+  display: none;
+}
+
+#no-fortune {
+  display: none;
+}
+
+#return {
   display: none;
 }
